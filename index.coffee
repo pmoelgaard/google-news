@@ -1,18 +1,17 @@
 util = require 'util'
 request = require 'request'
 extend = require 'extend'
+URLHash = require('nx-url-hash')
 Loki = require 'lokijs'
 FeedParser = require('feedparser')
 EventEmitter = require('events').EventEmitter;
 
 class GoogleNews
 
-
   @DATA: 'google.news.data'
   @ERROR: 'google.news.error'
   @ATOM: 'atom'
   @RSS: 'rss'
-
 
   constructor: (options = {}) ->
 
@@ -21,7 +20,7 @@ class GoogleNews
     }
 
     this.cacheProvider = new Loki(options.cacheFileName)
-
+    this.urlHash = new URLHash()
 
   stream: (track, callback) ->
 
@@ -56,6 +55,7 @@ class GoogleNews
 
         feedParser.on 'readable', () =>
           while( item = feedParser.read() )
+            item.guid = this.generateGuid(item.guid)
             existingItems = this.cache.find( { guid:item.guid } )
             if existingItems.length is 0
               this.cache.insert(item)
@@ -83,6 +83,9 @@ class GoogleNews
       onError: (error) =>
         this.emit GoogleNews.ERROR, error
 
+      generateGuid: (uri) =>
+        guid = this.context.urlHash.hash(uri)
+        return guid
 
     stream = new GoogleNewsStream(this, track)
     callback(stream)
