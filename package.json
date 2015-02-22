@@ -1,0 +1,20 @@
+{
+  "name": "google-news",
+  "version": "1.0.0",
+  "description": "A JavaScript API for querying Google News ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "google",
+    "news",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmoelgaard/google-news"
+  },
+  "author": "Peter Andreas Moelgaard <admin@petermolgard.com> (http://petermolgaard.com/)",
+  "license": "Apache-2.0"
+}
