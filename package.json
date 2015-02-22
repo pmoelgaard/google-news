@@ -1,6 +1,6 @@
 {
   "name": "google-news",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript API for querying Google News",
   "main": "lib/index.js",
   "scripts": {
