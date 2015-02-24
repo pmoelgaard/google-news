@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - node
-
-before_script:
- - chmod a=rx tests
- - chmod a=rx tests/index.js

@@ -4,7 +4,7 @@
   "description": "JavaScript API for querying Google News",
   "main": "index.js",
   "scripts": {
-    "test": "tests/index.js"
+    "test": "mocha tests/index.js"
   },
   "keywords": [
     "google",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "coffee-script": "^1.9.1",
+    "jshint": "^2.6.0",
     "mocha": "^2.1.0",
     "should": "^5.0.1"
   }
