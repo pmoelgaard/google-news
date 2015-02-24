@@ -6,6 +6,7 @@ Loki = require 'lokijs'
 FeedParser = require('feedparser')
 EventEmitter = require('events').EventEmitter;
 
+
 class GoogleNews
 
   @DATA: 'google.news.data'
@@ -34,7 +35,9 @@ class GoogleNews
     this.cacheProvider = new Loki(options.cacheFileName)
     this.urlHash = new URLHash()
 
+
   stream: (track, callback) ->
+
     class GoogleNewsStream
 
       util.inherits(GoogleNewsStream, EventEmitter);
