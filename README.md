@@ -2,8 +2,7 @@
 JavaScript API for querying Google News, written in CoffeeScript.
 &nbsp;
 
-Underneat it uses Google News' RSS feeds.  
-It then caches the results in-memory for comparison between poll's and only delivers the deltas as a stream.
+[![npm version](https://badge.fury.io/js/google-news.svg)](http://badge.fury.io/js/google-news)
 &nbsp;
 
 ---
