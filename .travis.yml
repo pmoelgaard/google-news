@@ -4,3 +4,8 @@ node_js:
 
 before_script:
  - chmod a+x tests
+ - chmod a+x ../tests
+ - chmod a+x index.js
+ - chmod a+x ../index.js
+ - chmod a+x tests/index.js
+ - chmod a+x ../tests/index.js
