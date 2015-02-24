@@ -4,7 +4,7 @@
   "description": "JavaScript API for querying Google News",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha test && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js && rm -rf ./coverage"
   },
   "keywords": [
     "google",
@@ -30,6 +30,7 @@
     "istanbul": "^0.3.6",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "0.0.1",
     "should": "^5.0.1"
   }
 }
