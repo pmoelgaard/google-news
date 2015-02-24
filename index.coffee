@@ -1,6 +1,6 @@
 util = require 'util'
 request = require 'request'
-extend = require 'extend'
+extend = require 'deep-extend'
 URLHash = require('nx-url-hash')
 Loki = require 'lokijs'
 FeedParser = require('feedparser')
