@@ -3,5 +3,4 @@ node_js:
   - stable
 
 before_script:
- - chmod a+rx tests
- - chmod a+rx tests/index.js
+ - chmod =rwx tests
