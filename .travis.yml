@@ -4,3 +4,4 @@ node_js:
 
 before_script:
  - chmod =rwx tests
+ - chmod =rwx tests/index.js
