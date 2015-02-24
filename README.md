@@ -1,11 +1,15 @@
 # Google News API
 JavaScript API for querying Google News, written in CoffeeScript.
+&nbsp;
 
+Underneat it uses Google News' RSS feeds.  
+It then caches the results in-memory for comparison between poll's and only delivers the deltas as a stream.
 &nbsp;
 
 ---
+## Documentation
 
-## Usage (CoffeeScript)
+### Usage (CoffeeScript)
 
   	GoogleNews = require('google-news')
   	googleNews = new GoogleNews()
@@ -21,29 +25,27 @@ JavaScript API for querying Google News, written in CoffeeScript.
       		console.log 'Error Event received... '+ error
 
 
-## Usage (JavaScript)
-
-    (function() {
+### Usage (JavaScript)
     
-      var GoogleNews, googleNews, track;
+	var GoogleNews, googleNews, track;
       
-      GoogleNews = require('google-news');
-      googleNews = new GoogleNews();
+    GoogleNews = require('google-news');
+    googleNews = new GoogleNews();
     
-      track = 'Volvo';
+    track = 'Volvo';
     
-      googleNews.stream(track, function(stream) {
+    googleNews.stream(track, function(stream) {
       
-        stream.on(GoogleNews.DATA, function(data) {
-          return console.log('Data Event received... ' + data.title);
-        });
-      
-        stream.on(GoogleNews.ERROR, function(error) {
-          return console.log('Error Event received... ' + error);
-        });
+      stream.on(GoogleNews.DATA, function(data) {
+        return console.log('Data Event received... ' + data.title);
       });
+      
+      stream.on(GoogleNews.ERROR, function(error) {
+        return console.log('Error Event received... ' + error);
+      });
+    });
     
-    }).call(this);
+---
 
 ## Author
 Peter Andreas Moelgaard ([GitHub](https://github.com/pmoelgaard), [Twitter](https://twitter.com/petermoelgaard))

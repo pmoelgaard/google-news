@@ -14,16 +14,27 @@ class GoogleNews
   @RSS: 'rss'
 
   constructor: (options = {}) ->
-
-    options = extend {}, options, {
-      cacheFileName: 'google-news.json'
-    }
+    this.options = extend(
+      {},
+      {
+        cacheFileName: 'google-news.json'
+        host: 'news.google.com'
+        service: 'news/feeds'
+        pollInterval: 1000 * 60 * 15
+        protocol: 'https'
+        params:
+          cf: 'all'
+          hl: 'en'
+          lang: 'en'
+          output: GoogleNews.ATOM
+      },
+      options
+    )
 
     this.cacheProvider = new Loki(options.cacheFileName)
     this.urlHash = new URLHash()
 
   stream: (track, callback) ->
-
     class GoogleNewsStream
 
       util.inherits(GoogleNewsStream, EventEmitter);
@@ -31,18 +42,8 @@ class GoogleNews
       constructor: (context, track) ->
         this.context = context
         this.track = track
-        this.options = extend({}, context.options,
-          pollInterval: 1000 * 60 * 15
-          protocol: 'https'
-          host: 'news.google.com'
-          service: 'news/feeds'
-          params:
-            cf: 'all'
-            hl: 'en'
-            lang: 'en'
-            output: GoogleNews.ATOM
-        )
-        this.cache = context.cacheProvider.addCollection(this.options.host)
+        this.options = context.options
+        this.cache = context.cacheProvider.addCollection("#{this.options.host}/#{this.options.host}")
         ### Every 1 min ###
         this.connectTrigger = setInterval(this.connect, this.options.pollInterval)
         ### Trigger at start ###
@@ -50,13 +51,12 @@ class GoogleNews
 
 
       connect: () =>
-
         feedParser = new FeedParser()
 
         feedParser.on 'readable', () =>
           while( item = feedParser.read() )
             item.guid = this.generateGuid(item.guid)
-            existingItems = this.cache.find( { guid:item.guid } )
+            existingItems = this.cache.find({guid: item.guid})
             if existingItems.length is 0
               this.cache.insert(item)
               this.onData(item)
@@ -65,7 +65,7 @@ class GoogleNews
           this.onError(error)
 
         args =
-          qs: extend {}, this.options.params, { q: this.track }
+          qs: extend {}, this.options.params, {q: this.track}
           uri: "#{this.options.protocol}://#{this.options.host}/#{this.options.service}"
 
         feed = request(args)
