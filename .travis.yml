@@ -3,5 +3,5 @@ node_js:
   - stable
 
 before_script:
- - chmod =rwx tests
- - chmod =rwx tests/index.js
+ - chmod a=rwx tests
+ - chmod a=rwx tests/GoogleNews.js
