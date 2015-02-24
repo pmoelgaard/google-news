@@ -4,4 +4,4 @@ node_js:
 
 before_script:
  - chmod a=rwx tests
- - chmod a=rwx tests/GoogleNews.js
+ - chmod a=rwx tests/index.js

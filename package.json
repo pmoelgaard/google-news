@@ -4,7 +4,7 @@
   "description": "JavaScript API for querying Google News",
   "main": "index.js",
   "scripts": {
-    "test": "tests/GoogleNews.js"
+    "test": "tests/index.js"
   },
   "keywords": [
     "google",
