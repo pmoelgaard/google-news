@@ -1,7 +1,6 @@
 language: node_js
 node_js:
-  - stable
+  - node
 
 before_script:
- - chmod a=rwx tests
- - chmod a=rwx tests/index.js
+ - chmod a=rx tests
