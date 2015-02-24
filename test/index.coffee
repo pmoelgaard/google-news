@@ -1,8 +1,15 @@
-describe 'My test', ->
+assert = require("assert")
+should = require("should")
 
-  it 'should run synchronously', () ->
-    # do sth
+describe 'GoogleNews', () ->
 
-  it 'should run asynchronously', (next) ->
-    # do sth
-    next()
+  GoogleNews = require('../index')
+
+  it 'should be a ObjectFactory', () ->
+    googleNews = new GoogleNews()
+    should.exist(GoogleNews)
+
+  describe '#constructor', () ->
+    it 'should return an instance of GoogleNews', () ->
+      googleNews = new GoogleNews()
+      should.exist(googleNews)
