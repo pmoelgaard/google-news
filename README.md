@@ -2,7 +2,7 @@
 JavaScript API for querying Google News, written in CoffeeScript.
 &nbsp;
 
-[![npm version](https://badge.fury.io/js/google-news.svg)](http://badge.fury.io/js/google-news)
+[![npm version](https://badge.fury.io/js/google-news.svg)](https://www.npmjs.com/package/google-news)
 &nbsp;
 
 ---
