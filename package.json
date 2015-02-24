@@ -4,7 +4,7 @@
   "description": "JavaScript API for querying Google News",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tests/index.js"
   },
   "keywords": [
     "google",
