@@ -4,7 +4,7 @@
   "description": "JavaScript API for querying Google News",
   "main": "index.js",
   "scripts": {
-    "test": "coffee --c && mocha tests && jshint index.js"
+    "test": "coffee --compile && mocha tests && jshint index.js && istanbul cover"
   },
   "keywords": [
     "google",
@@ -25,7 +25,9 @@
     "request": "^2.53.0"
   },
   "devDependencies": {
+    "codecov.io": "0.0.8",
     "coffee-script": "^1.9.1",
+    "istanbul": "^0.3.6",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
     "should": "^5.0.1"
