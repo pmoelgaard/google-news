@@ -7,13 +7,13 @@
   assert = require("assert");
 
   describe('GoogleNews', function() {
-    var GoogleNews;
-    GoogleNews = require('../index.js');
-    return describe('#constructor', function() {
-      return it('should return a GoogleNews Object', function() {
-        return should.exist(GoogleNews);
-      });
-    });
+
+    /*GoogleNews = require('../index.js'); */
+
+    /*describe '#constructor', () ->
+      it 'should return a GoogleNews Object', () ->
+        should.exist(GoogleNews)
+     */
   });
 
 }).call(this);
