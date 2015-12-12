@@ -37,7 +37,6 @@ class GoogleNews
 
 
   stream: (track, callback) ->
-
     class GoogleNewsStream
 
       util.inherits(GoogleNewsStream, EventEmitter);

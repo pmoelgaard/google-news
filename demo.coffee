@@ -1,16 +1,20 @@
-  GoogleNews = require 'index'
-  googleNews = new GoogleNews(
-    pollInterval: 5000
-  )
+path = require 'path'
 
-  track = 'Volvo'
+indexPath = path.join __dirname, 'index.js'
 
-  googleNews.stream track, (stream) ->
+GoogleNews = require indexPath
 
-    stream.on GoogleNews.DATA, (data) ->
-      console.log 'Data Event received... '+ data.title
+googleNews = new GoogleNews(
+  pollInterval: 5000
+)
 
-    stream.on GoogleNews.ERROR, (error) ->
-      console.log 'Error Event received... '+ error
+track = 'Volvo'
 
-    return
+googleNews.stream track, (stream) ->
+  stream.on GoogleNews.DATA, (data) ->
+    console.log 'Data Event received... ' + data.title
+
+  stream.on GoogleNews.ERROR, (error) ->
+    console.log 'Error Event received... ' + error
+
+  return
