@@ -18,7 +18,7 @@
   "author": "Peter Andreas Moelgaard <admin@petermolgard.com> (http://petermolgaard.com/)",
   "license": "Apache-2.0",
   "dependencies": {
-    "deep-extend": "^0.3.2",
+    "deep-extend": "~> 0.5.1",
     "feedparser": "^0.19.2",
     "lokijs": "^1.1.15",
     "nx-url-hash": "^1.0.6",
